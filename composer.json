@@ -1,0 +1,27 @@
+{
+    "name": "atozpw/bree-whatsapp",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Asep Suprapto",
+            "email": "asepsuprapto.id@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Atozpw\\BreeWhatsapp\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Atozpw\\BreeWhatsapp\\ApiServiceProvider"
+            ],
+            "aliases": {
+                "BreeWhatsapp": "Atozpw\\BreeWhatsapp\\ApiFacade"
+            }
+        }
+    }
+}
