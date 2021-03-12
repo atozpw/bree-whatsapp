@@ -34,3 +34,29 @@ Tambahkan kode berikut di file .env untuk konfigurasi host Bree WhatsApp
 ```
 BREE_WHATSAPP_HOST=isi_dengan_host_bree_whatsapp
 ```
+
+## Implementasi
+Contoh pengimplementasian pada controller
+```php
+    <?php
+
+    use Atozpw\BreeWhatsapp\Api;
+    
+    class WhatsappController extends Controller
+    {
+        public function sendMessage() {
+            $bree = new Api;
+            $number = 'nomor whatsapp';
+            $message = 'text';
+            $bree->sendText($number, $message);
+        }
+
+        public function sendMedia() {
+            $bree = new Api;
+            $number = 'nomor whatsapp';
+            $caption = 'text';
+            $file = 'berupa file gambar *jpg/png';
+            $bree->sendMedia($number, $caption, $file);
+        }
+    }
+```
