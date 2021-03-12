@@ -8,26 +8,26 @@ composer require atozpw/bree-whatsapp
 
 ## Integrasi Ke Laravel
 Tambahkan service provider ke config/app.php
-    ```php
+```php
     'providers' => [
     	....
-    	
+
     	Atozpw\BreeWhatsapp\ApiServiceProvider::class,
     ]
-    ```
+```
 
 ## Publish Config Package Laravel
-Jalankan command artisan berikut ```php artisan vendor:publish --provider="Atozpw\BreeWhatsapp\ApiServiceProvider``` untuk publish secara otomatis, atau menggunakan cara manual seperti berikut ini:
+Jalankan command artisan berikut ```php artisan vendor:publish --provider="Atozpw\BreeWhatsapp\ApiServiceProvider"``` untuk publish secara otomatis, atau menggunakan cara manual seperti berikut ini:
 
 1. Buat file **bree-whatsapp.php** di folder **config** secara manual
 2. Tambahkan kode berikut ini:
-    ```php
+```php
     <?php
 
     return [
-    'bree_whatsapp_host' => env('BREE_WHATSAPP_HOST', ''),
+        'bree_whatsapp_host' => env('BREE_WHATSAPP_HOST', ''),
     ];
-    ```
+```
 
 ## Setting Environment 
 Tambahkan kode berikut di file .env untuk konfigurasi host Bree WhatsApp
