@@ -8,12 +8,13 @@ class Api
 
     public function __construct() {
 		$this->host = config('bree-whatsapp.bree_whatsapp_host');
+		$this->port = config('bree-whatsapp.bree_whatsapp_port');
 	}
     
     public function sendText($number, $message) {
         $data = array('number' => $number, 'message' => $message);
 
-        $url = $this->host . '/send-message';
+        $url = $this->host . ':' . $this->port . '/send-text';
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
@@ -30,7 +31,7 @@ class Api
         $data = array('number' => $number, 'caption' => $message, 'file' => $curlfile);
         $header = array('Content-Type: multipart/form-data');
 
-        $url = $this->host . '/send-media';
+        $url = $this->host . ':' . $this->port . '/send-image';
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
